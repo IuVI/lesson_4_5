@@ -38,7 +38,7 @@
 		echo $textlist['fr'];
 		//стільки нотісів за 1 заняття я ще не бачив
 		// наступне заняття
-		// заняття 17 (завдання 1 - вивести масив з назвами 5 країн)
+		// заняття 18 (завдання 1 - вивести масив з назвами 5 країн)
 		$countries = array('Ukraine', 'Japan', 'Italy', 'Chile', 'Namibia');
 		echo "<br>";
 		echo "<pre>";
@@ -59,6 +59,32 @@
 		echo "<pre>";
 		print_r($booklist);
 		echo "</pre>";
+		// заняття 22 константи (завдання 4 - ввести 2 константи : назви країн, а потім сформувати та вивести масив, що з них складається)
+		echo "<br> завдання 4 заняття 22";
+		define('ITALY', 'Italy');
+		define('UKRAINE', 'Ukraine');
+		$arr_4 = array(ITALY, UKRAINE);
+		echo "<pre>";
+		print_r($arr_4);
+		echo "</pre>";
+		// заняття 23 змінні змінних (завдання 5 - вивести значення змінної $$$$$hello)
+		echo "<br> завдання 5 заняття 23";
+		$hello = 'n1';
+		$n1 = 'n2';
+		$n2 = 'n3';
+		$n3 = 'n4';
+		$n4 = '<br>At last, id did it!!!!!';
+		echo $$$$$hello;
+		// заняття 28 предетерміновані змінні (завдання 6 - вивести на екран результат вводу з форми методом $_POST або $_GET)
+		echo "<br> завдання 6 заняття 28 - суперглобальна змінна _ПОСТ";
+	?>
+	<form action="index.php" method="post">
+		<input type="text" name="message"/>
+		<input type="submit" value="Send!">
+	</form>
+	<br>
+	<?php
+		print_r($_POST);
 	?>
 </body>
 </html>
