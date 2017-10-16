@@ -86,5 +86,44 @@
 	<?php
 		print_r($_POST);
 	?>
+	<hr><br>
+	завдання 7 заняття 31 - серіалізація данних (створити форму з полями username, email, message та вивести серіалізовані дані на екран)
+	<form action="index.php" method="post">
+		<input type="text" name="username" value="login"/>
+		<input type="email" name="mail" value="email@mail.com" />
+		<textarea name="comment" cols="40" rows="5" ></textarea>
+		<input type="submit" name="submit"/>
+	</form>
+	<?php
+		$a = serialize($_POST);
+		echo $a;
+		echo "<br><hr>завдання 8 заняття 33 підрахувати кількість секунд у році і присвоїти це значення змінній, обчислити остачу від ділення на 2";
+		$b = 365 * 60 * 60;
+		$c = $b % 2;
+		echo "<br> остача від ділення $b на 2 = $c";
+		echo "<br><hr>завдання 9 заняття 35 створити строку 12345 шляхом використання оператора конкатенації";
+		echo "<br>";
+		echo "1" . "2" . "3" . "4" . "5";
+		echo "<br><hr>завдання 10 заняття 36 підрахувати значення false && true || false && true || !false && true";
+		echo "<br>";
+		echo false && true || false && true || !false && true;
+		echo "<br><hr>завдання 11 заняття 36 вивести на екран чи ділиться змінна на 2 у вигляді булевої змінної";
+		$d = 300;
+		$e = $d % 2 == 0;
+		echo "<br>";
+		echo $e;
+		echo "<br><hr>завдання 12 заняття 37 створити алгоритм обміну значень змінних не використовуючи третьої";
+		echo "<br>присвоюємо значення змінним 15 та 20";
+		$f = 15;
+		$g = 20;
+		echo "<br>f = $f , g = $g";
+		echo "<br>записуємо різницю між змінними до однієї зі змінних";
+		$f = $g - $f;
+		echo "<br>f = $f";
+		echo "<br> віднімаємо і додаємо до змінних відповідні елементи";
+		$g = $g - $f;
+		$f = $g + $f;
+		echo "<br>f = $f , g = $g";
+	?>
 </body>
 </html>
