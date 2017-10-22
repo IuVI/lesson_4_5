@@ -124,6 +124,156 @@
 		$g = $g - $f;
 		$f = $g + $f;
 		echo "<br>f = $f , g = $g";
+		echo "<br><hr>завдання 13 заняття 44 створити алгоритм знаходження максимального значення з двох заданих змінних";
+		echo "<br> маємо змінні f = $f , g = $g";
+		if ($f > $g) {
+			$m = $f;
+		} elseif ($f == $g) {
+			$m = 'equal';
+		} else {
+			$m = $g;
+		}
+		echo "<br> максимальне значення між f та g, m = $m";
+		echo "<br><hr>завдання 14 заняття 45 створити алгоритм знаходження максимального значення з двох заданих змінних за допомогою тернарного оператора";
+		echo "<br> маємо змінні f = $f , g = $g";
+		$f > $g ? $m = $f : $f == $g ? $m = 'equal' : $m = $g;
+		echo "<br> максимальне значення між f та g, m = $m";
+		echo "<br><hr>завдання 15 заняття 46 створити алгоритм знаходження максимального значення з двох заданих змінних за допомогою switch-case";
+		echo "<br> маємо змінні f = $f , g = $g";
+		switch ($f) {
+			case $g:
+				$m = 'equal';
+				break;
+			default:
+				$f > $g ? $m = $f : $m = $g;
+				break;
+		}
+		echo "<br> максимальне значення між f та g, m = $m";
+		echo "<br><hr>завдання 16 заняття 47 створити алгоритм знаходження усіх простих чисел від 1 до 100";
+		$simple = array();
+
+		for ( $i = 2; $i <= 100; $i++) {
+			$not = true;
+			for ($j=2; $j < $i; $j++) { 
+				if ($i % $j == 0) {
+					$not = false;
+					break;
+				}
+			}
+			if ($not) {
+				$simple[] = $i;
+			}
+		}
+		echo '<br>';
+		print_r($simple);
+		echo "<br><hr>завдання 17 заняття 48 створити алгоритм знаходження усіх простих чисел від 1 до 100 за допомогою do-while";
+		$i = 2;
+		$j = 2;
+		unset($simple);
+		$simple = array();
+		while ($i<= 100) {
+			$not = true;
+			while ( $j < $i) {
+				if ($i % $j == 0) {
+					$not = false;
+					break;
+				}
+				$j++;
+			}
+			if ($not) {
+				$simple[] = $i;
+			}
+			$i++;
+			$j = 2;
+		}
+		echo '<br>';
+		print_r($simple);
+		echo "<br><hr>завдання 18 заняття 49 вивести за допомогою foreach масив від 1 до 10, елементи якого діляться на 3";
+		$ar10 = array(1, 2, 3, 4, 5, 6, 7, 8, 9 ,10);
+		echo '<br>';
+		foreach ($ar10 as $key) {
+			if ($key % 3  == 0) {
+				echo " " . $key;
+			}
+		}
+		echo "<br><hr>завдання 19 заняття 51 вивести перше просте число між 200 та 400 використовуючи break та continue";
+		unset($simple);
+		$simple = array();
+		for ( $i = 200; $i <= 400; $i++) {
+			$not = true;
+			for ($j=2; $j < $i; $j++) { 
+				if ($i % $j == 0) {
+					$not = false;
+					break;
+				}
+			}
+			if ($not) {
+				echo '<br>' . $i;
+				break;
+			}
+		}
+		echo "<br><hr>завдання 20 заняття 52 як спростити функцію, які <b>теоретично</b> ще не проходили)))";
+		function test($x, $y) {
+		return ($y == 0) ? die('Error') : (float)($x / $y);
+		}
+		echo '<br>' . test(16,2);
+		echo '<br>тернарний оператор лише на думку спадає';
+		echo "<br><hr>завдання 21 заняття 55 записати у текстовий файл 1, 22, 333, 444, ... 101010... <br> для того, щоб запрацювало, розкоментіть строки нижче";
+		/*$h = fopen('test.txt', 'a');
+		for ($i = 1; $i < 11; $i++) {
+			if ($i <2 ) {
+				fwrite($h, str_repeat(strval($i), $i));
+				continue;
+			}
+			fwrite($h, PHP_EOL . str_repeat(strval($i), $i));
+		}
+		fclose($h);*/
+		echo "<br><hr>завдання 22 заняття 66 функція, що виводить масив між тегами пре";
+		echo "<br масив складається з цифр 0, 1, 2, 3... 10>";
+		function print_array ($a1) {
+			echo "<pre>";
+			print_r($a1);
+			echo "<pre>";
+		}
+		$arr1 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		print_array($arr1);
+		echo "<br><hr>завдання 23 заняття 67 функція, що виводить масив між тегами пре замовчування - 0: print_r 1: var_dump";
+		function print_ar_mod ($a1, $a2 = 0) {
+			if ($a2 == 1) {
+				echo "<pre>";
+				var_dump($a1);
+				echo "<pre>";
+			} else {
+				echo "<pre>";
+				print_r($a1);
+				echo "<pre>";
+			}
+		}
+		print_ar_mod($arr1);
+		echo "<br><hr>завдання 24 заняття 69 функція, що дописує в кінець масиву кількість значень масиву";
+		function total_array (& $a1) {
+			$a1[] = count($a1);
+		}
+		total_array($arr1);
+		print_ar_mod($arr1);
+		echo "<br><hr>завдання 25 заняття 70 функція, що визначає, чи число просте";
+		function simple ($a1) {
+			for ($i=2; $i < $a1; $i++) {
+				if ($a1 % $i == 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+		echo '<br>';
+		var_dump(simple(239));
+		echo "<br><hr>завдання 26 заняття 71 функція, що є аналогом print_r";
+		// function print_ar ($a1) {
+		// 	for ($i=0; $i < count($a1); $i++) { 
+		// 		# code...
+		// 	}
+		// }
+		// print_ar($arr1);
 	?>
 </body>
 </html>
