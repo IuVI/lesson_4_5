@@ -268,12 +268,25 @@
 		echo '<br>';
 		var_dump(simple(239));
 		echo "<br><hr>завдання 26 заняття 71 функція, що є аналогом print_r";
-		// function print_ar ($a1) {
-		// 	for ($i=0; $i < count($a1); $i++) { 
-		// 		# code...
-		// 	}
-		// }
-		// print_ar($arr1);
+		function print_ar($a1) {
+			$text = ucfirst(gettype($a1)) . PHP_EOL . '(';
+			foreach ($a1 as $key => $value) {
+				if (gettype($value) == 'array') {
+					$sub_ar = print_ar($value);
+					$text = $text . PHP_EOL . '    ' . '[' . $key . ']' . ' => ' . $sub_ar;
+					continue;
+				}
+				$text = $text . PHP_EOL . '    ' . '[' . $key . ']' . ' => ' . $value;
+			}
+			$text = $text . PHP_EOL . ')';
+			return $text;
+		}
+		$arr_com = array('солома', 2 ,array(3, 2, 1) , 3);
+		echo "<br> сподіваюсь, що аналогія прослідковується... Відмінності: <br>1). викликати потрібно за допомогою echo; <br>2). вкладені вектори не мають табуляції; <br>3). Повертає не null або true, a текстовий рядок, що є 'роздрукованим варіантом' массива<br>";
+		echo print_ar($arr_com);
+		echo "<br>";
+		$t1 = print_r($arr_com);
+		echo $t1 + $t1;
 	?>
 </body>
 </html>
